@@ -1,5 +1,9 @@
 package com.bluebird.repository;
 
-public interface TraderRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.bluebird.entity.TraderEntity;
+
+public interface TraderRepository extends JpaRepository<TraderEntity, Long> {
 
 }

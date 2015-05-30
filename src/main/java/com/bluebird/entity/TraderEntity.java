@@ -9,7 +9,8 @@ import javax.persistence.Id;
 @Entity(name = "trader")
 public class TraderEntity {
 
-	private Id id;
+	@Id
+	private int id;
 	
 	private String name;
 
@@ -20,11 +21,11 @@ public class TraderEntity {
 	private Date createdAt;
 
 	 
-	public Id getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Id id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
