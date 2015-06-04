@@ -2,19 +2,22 @@ package com.bluebird.config;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.accept.ContentNegotiationManagerFactoryBean;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Configuration
 @ComponentScan("com.bluebird")
-public class ApplicationConfig {
+public class ApplicationConfig extends WebMvcConfigurationSupport {
 
 	@Bean
 	public MappingJackson2HttpMessageConverter messageConverter() {
@@ -34,5 +37,21 @@ public class ApplicationConfig {
 		mapper.setSerializationInclusion(Include.NON_NULL);
 		return mapper;
 	}
+	
+	@Bean
+	public ContentNegotiationManagerFactoryBean contentNegotiationManager() {
+		ContentNegotiationManagerFactoryBean factoryBean = new ContentNegotiationManagerFactoryBean();
+		factoryBean.setFavorPathExtension(true);
+		factoryBean.setFavorParameter(true);
+		factoryBean.setParameterName("format");
+		factoryBean.setIgnoreAcceptHeader(true);
+		factoryBean.setDefaultContentType(MediaType.APPLICATION_JSON);
+		Properties mediaTypes = new Properties();
+		mediaTypes.put("json", MediaType.APPLICATION_JSON_VALUE);
+		mediaTypes.put("xml", MediaType.APPLICATION_XML_VALUE);
+		factoryBean.setMediaTypes(mediaTypes);
+		return factoryBean;
+	}
+
 
 }

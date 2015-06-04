@@ -22,10 +22,16 @@ public class TraderManagerImpl implements TraderManager {
 	private Logger logger = LoggerFactory.getLogger(getClass());
 
 	public List<TraderDTO> listTraders() {
-		List<TraderDTO> traderDTOs = new ArrayList<TraderDTO>();
+		List<TraderDTO> traderDTOs = null;
 		try {
 			List<TraderEntity> allTraders = traderRepository.findAll();
-			BeanUtils.copyProperties(allTraders, traderDTOs);
+			traderDTOs = new ArrayList<TraderDTO>(allTraders.size());
+
+			for(int index = 0 ; index < allTraders.size() ; index++){
+				TraderDTO traderDTO = new TraderDTO();
+				BeanUtils.copyProperties(allTraders.get(index), traderDTO);
+				traderDTOs.add(traderDTO);
+			}
 			
 		} catch (Exception e) {
 			logger.error("Exception occurred while fetching traders ", e);
