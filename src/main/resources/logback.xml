@@ -1,0 +1,34 @@
+<configuration>
+	<property name="CONTEXT_NAME" value="tg-services" />
+	<appender name="FILE-${CONTEXT_NAME}"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/${CONTEXT_NAME}.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>logs/${CONTEXT_NAME}.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<!-- keep 30 days' worth of history -->
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="com.bluebird" level="DEBUG" />
+    <logger name="org.hibernate" level="ERROR"/>
+
+	<root level="INFO">
+		<appender-ref ref="FILE-${CONTEXT_NAME}" />
+		<appender-ref ref="CONSOLE" />
+	</root>
+</configuration>
