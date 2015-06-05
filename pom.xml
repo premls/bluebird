@@ -17,6 +17,7 @@
 		<jackson.version>2.3.0</jackson.version>
 		<slf4j.version>1.7.5</slf4j.version>
 		<logback.version>1.0.13</logback.version>
+		<swagger.version>0.6.5</swagger.version>
 	</properties>
   <dependencies>
     <dependency>
@@ -116,8 +117,25 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>${jackson.version}</version>
 		</dependency>
+		
+		<!-- Swagger -->
+		<dependency>
+			<groupId>com.mangofactory</groupId>
+			<artifactId>swagger-springmvc</artifactId>
+			<version>${swagger.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>slf4j-log4j12</artifactId>
+					<groupId>org.slf4j</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>log4j</artifactId>
+					<groupId>log4j</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
   </dependencies>
   <build>
-    <finalName>service</finalName>
+    <finalName>bluebird</finalName>
   </build>
 </project>
