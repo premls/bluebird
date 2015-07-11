@@ -1,5 +1,7 @@
 package com.bluebird.controller.io;
 
+import com.bluebird.util.StatusAndError;
+
 public class BaseResponse {
 
 	private int responseCode;
@@ -16,6 +18,11 @@ public class BaseResponse {
 	}
 	public void setResponseMessage(String responseMessage) {
 		this.responseMessage = responseMessage;
+	}
+	
+	public void setResponseStatus(StatusAndError statusAndError) {
+		this.responseCode = statusAndError.getCode();
+		this.responseMessage = statusAndError.getMessage();
 	}
 	
 	

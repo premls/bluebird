@@ -10,7 +10,11 @@ public class ApplicationProperties {
 	@Bean
 	public PropertyPlaceholderConfigurer cachePropertiesConfigurer() {
 		PropertyPlaceholderConfigurer configurer = new PropertyPlaceholderConfigurer();
-		configurer.setLocations(new Resource[] {new ClassPathResource("jpa.properties"), new ClassPathResource("swagger.properties")});
+		configurer.setLocations(
+				new Resource[] {
+							new ClassPathResource("jpa.properties"), 
+							new ClassPathResource("swagger.properties")
+						});
 		configurer.setIgnoreUnresolvablePlaceholders(true);
 		return configurer;
 	}

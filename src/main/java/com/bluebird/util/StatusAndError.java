@@ -1,13 +1,16 @@
 package com.bluebird.util;
 
-public enum Error {
+public enum StatusAndError {
 
-	INVALID_INPUT(100, "Invalid input paramters");
+	//Success response code
+	SUCCESS_RESPONSE(200, "Success"),
+	
+	TRADERS_NOT_AVAILABLE(100, "No traders available");
 	
 	private int code;
 	private String message;
 	
-	private Error(int code, String message) {
+	private StatusAndError(int code, String message) {
 		this.code = code;
 		this.message = message;
 	}
