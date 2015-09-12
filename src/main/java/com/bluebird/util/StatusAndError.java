@@ -3,9 +3,10 @@ package com.bluebird.util;
 public enum StatusAndError {
 
 	//Success response code
-	SUCCESS_RESPONSE(200, "Success"),
+	SUCCESS(200, "Success"),
 	
-	TRADERS_NOT_AVAILABLE(100, "No traders available");
+	EMAIL_MANDATORY(100, "Email is mandatory"),
+	TRADERS_NOT_AVAILABLE(101,"Traders are not available");
 	
 	private int code;
 	private String message;
