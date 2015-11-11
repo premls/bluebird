@@ -6,6 +6,7 @@ public class BaseResponse {
 
 	private int responseCode;
 	private String responseMessage;
+	private boolean status;
 	
 	public int getResponseCode() {
 		return responseCode;
@@ -24,6 +25,10 @@ public class BaseResponse {
 		this.responseCode = statusAndError.getCode();
 		this.responseMessage = statusAndError.getMessage();
 	}
-	
-	
+	public boolean isStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
 }

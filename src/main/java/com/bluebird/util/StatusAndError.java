@@ -6,7 +6,9 @@ public enum StatusAndError {
 	SUCCESS(200, "Success"),
 	
 	EMAIL_MANDATORY(100, "Email is mandatory"),
-	TRADERS_NOT_AVAILABLE(101,"Traders are not available");
+	TRADERS_NOT_AVAILABLE(101,"Traders are not available"),
+	REGISTRATION_FAILED(102,"Registration failed"),
+	EMAIL_SENDING_FAILED(103,"Email sending failed");
 	
 	private int code;
 	private String message;

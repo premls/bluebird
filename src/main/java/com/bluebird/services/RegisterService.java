@@ -1,11 +1,11 @@
 package com.bluebird.services;
 
+import com.bluebird.controller.io.RegisterResponse;
 import com.bluebird.dto.RegisterDTO;
-import com.bluebird.exception.ViewException;
 
 public interface RegisterService {
 
-	void register(RegisterDTO registerDTO) throws ViewException;
+	RegisterResponse register(RegisterDTO registerDTO);
 
 	void verifyTrader(RegisterDTO registerDTO);
 }

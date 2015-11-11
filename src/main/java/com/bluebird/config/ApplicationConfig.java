@@ -6,17 +6,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.thymeleaf.spring3.SpringTemplateEngine;
 import org.thymeleaf.spring3.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
-import com.mangofactory.swagger.configuration.DocumentationConfig;
 
 @Configuration
 @ComponentScan("com.bluebird")
-@Import(value = {ApplicationProperties.class, DocumentationConfig.class})
-public class ApplicationConfig extends WebMvcConfigurationSupport {
+@Import(value = {ApplicationProperties.class})
+public class ApplicationConfig  {
 
 	@Bean 
     public ServletContextTemplateResolver templateResolver() {

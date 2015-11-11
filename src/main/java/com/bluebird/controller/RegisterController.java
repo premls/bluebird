@@ -4,9 +4,12 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.bluebird.controller.io.RegisterResponse;
 import com.bluebird.dto.RegisterDTO;
 import com.bluebird.exception.ViewException;
 import com.bluebird.services.RegisterService;
@@ -15,16 +18,18 @@ import com.bluebird.services.RegisterService;
 @RequestMapping("/register")
 public class RegisterController {
 
+	
 	@Autowired
 	private RegisterService registerService;
 	
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public void register(RegisterDTO registerDTO) throws ViewException {
-		registerService.register(registerDTO);
+	@RequestMapping(method = RequestMethod.POST)
+	@ResponseBody
+	public RegisterResponse register(@ModelAttribute RegisterDTO registerDTO) throws ViewException {
+		return registerService.register(registerDTO);
 	}
 	
 	@RequestMapping(value = "/verifytrader", method = RequestMethod.POST)
-	public void verifyTrader(RegisterDTO registerDTO, HttpServletRequest request) {
+	public void verifyTrader(@ModelAttribute RegisterDTO registerDTO, HttpServletRequest request) {
 		// TODO : session validation 
 		registerService.verifyTrader(registerDTO);
 	}

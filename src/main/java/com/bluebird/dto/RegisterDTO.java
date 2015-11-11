@@ -7,44 +7,25 @@ public class RegisterDTO {
 	private String email;
 
 	private int userType;
+
+	private String title;
 	
-	private String name;
+	private String lastName;
 	
-	private String directorName;
+	private String password;
 	
-	private String companyRegisterNumber;
-	
-	private String companyVatNumber;
-	
-	private String websiteUrl;
-	
-	private String contactPerson;
-	
-	private String telephone1;
-	
-	private String telephone2;
-	
-	private String telephone3;
+	private String firstName;
 	
 	private String mobile;
-	
-	private String fbUrl;
-	
-	private String twitterUrl;
 	
 	private Date createdAt;
 	
 	private Date modifiedAt;
 	
+	private String expertise;
 	
-	public int getUserType() {
-		return userType;
-	}
-
-	public void setUserType(int userType) {
-		this.userType = userType;
-	}
-
+	private boolean status;
+	
 	public String getEmail() {
 		return email;
 	}
@@ -53,68 +34,20 @@ public class RegisterDTO {
 		this.email = email;
 	}
 
-	public String getName() {
-		return name;
+	public int getUserType() {
+		return userType;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUserType(int userType) {
+		this.userType = userType;
 	}
 
-	public String getDirectorName() {
-		return directorName;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setDirectorName(String directorName) {
-		this.directorName = directorName;
-	}
-
-	public String getCompanyRegisterNumber() {
-		return companyRegisterNumber;
-	}
-
-	public void setCompanyRegisterNumber(String companyRegisterNumber) {
-		this.companyRegisterNumber = companyRegisterNumber;
-	}
-
-	public String getWebsiteUrl() {
-		return websiteUrl;
-	}
-
-	public void setWebsiteUrl(String websiteUrl) {
-		this.websiteUrl = websiteUrl;
-	}
-
-	public String getContactPerson() {
-		return contactPerson;
-	}
-
-	public void setContactPerson(String contactPerson) {
-		this.contactPerson = contactPerson;
-	}
-
-	public String getTelephone1() {
-		return telephone1;
-	}
-
-	public void setTelephone1(String telephone1) {
-		this.telephone1 = telephone1;
-	}
-
-	public String getTelephone2() {
-		return telephone2;
-	}
-
-	public void setTelephone2(String telephone2) {
-		this.telephone2 = telephone2;
-	}
-
-	public String getTelephone3() {
-		return telephone3;
-	}
-
-	public void setTelephone3(String telephone3) {
-		this.telephone3 = telephone3;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
 	public String getMobile() {
@@ -123,22 +56,6 @@ public class RegisterDTO {
 
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
-	}
-
-	public String getFbUrl() {
-		return fbUrl;
-	}
-
-	public void setFbUrl(String fbUrl) {
-		this.fbUrl = fbUrl;
-	}
-
-	public String getTwitterUrl() {
-		return twitterUrl;
-	}
-
-	public void setTwitterUrl(String twitterUrl) {
-		this.twitterUrl = twitterUrl;
 	}
 
 	public Date getCreatedAt() {
@@ -157,13 +74,56 @@ public class RegisterDTO {
 		this.modifiedAt = modifiedAt;
 	}
 
-	public String getCompanyVatNumber() {
-		return companyVatNumber;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setCompanyVatNumber(String companyVatNumber) {
-		this.companyVatNumber = companyVatNumber;
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getExpertise() {
+		return expertise;
+	}
+
+	public void setExpertise(String expertise) {
+		this.expertise = expertise;
 	}
 	
+	@Override
+	public String toString() {
+		StringBuffer registerValues = new StringBuffer();
+		registerValues.append("email=").append(email).append(";").
+		append("userType=").append(userType).append(";").
+		append("title=").append(title).append(";").
+		append("lastName=").append(lastName).append(";").
+		append("firstName=").append(firstName).append(";").
+		append("mobile=").append(mobile);
+		return registerValues.toString();
+	}
+
+	public boolean isStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
 	
 }

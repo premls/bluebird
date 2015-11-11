@@ -11,7 +11,7 @@ public class ThymeleafLayoutInterceptor extends HandlerInterceptorAdapter {
     private static final String DEFAULT_LAYOUT = "templates/layout";
     private static final String DEFAULT_VIEW_ATTRIBUTE_NAME = "body";
 
-    /*@Override
+    @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
         if (modelAndView == null || !modelAndView.hasView()) {
             return;
@@ -26,7 +26,7 @@ public class ThymeleafLayoutInterceptor extends HandlerInterceptorAdapter {
         modelAndView.setViewName(DEFAULT_LAYOUT);
         
         modelAndView.addObject(DEFAULT_VIEW_ATTRIBUTE_NAME, originalViewName);
-    }*/
+    }
 
     /**
      * This code can be used when using more than one layout in our application
@@ -34,7 +34,7 @@ public class ThymeleafLayoutInterceptor extends HandlerInterceptorAdapter {
      * */
     
     
-   /* private void layoutProperties(Object handler, ModelAndView modelAndView) {
+   /*private void layoutProperties(Object handler, ModelAndView modelAndView) {
         HandlerMethod handlerMethod = (HandlerMethod) handler;
         Layout layout = getMethodOrTypeAnnotation(handlerMethod);
         if (layout != null) {

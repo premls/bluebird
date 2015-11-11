@@ -11,10 +11,25 @@ public class CustomerPreSignupEntity {
 
 	@Id
 	private int id;
+
+	@Column(name="title")
+	private String title;
+
+	@Column(name="first_name")
+	private String firstName;
+	
+	@Column(name="last_name")
+	private String lastName;
+	
+	@Column(name="password")
+	private String password;
+	
+	@Column(name="mobile")
+	private String mobile;
 	
 	@Column(name = "email")
 	private String email;
-	
+
 	@Column(name = "is_verified")
 	private boolean isVerified;
 	
@@ -23,7 +38,7 @@ public class CustomerPreSignupEntity {
 	
 	@Column(name = "modified_at")
 	private Date modifiedAt;
-
+	
 	public int getId() {
 		return id;
 	}
@@ -64,5 +79,44 @@ public class CustomerPreSignupEntity {
 		this.modifiedAt = modifiedAt;
 	}
 
-	
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 }

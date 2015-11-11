@@ -27,4 +27,12 @@ public abstract class BaseException extends Exception {
 	public int getErrorCode() {
 		return error != null ? error.getCode() : null; 
 	}
+	
+	@Override
+	public String getMessage() {
+		if(error != null){
+			return " Error Code="+getErrorCode()+" ; Error Message="+getErrorMessage();
+		}
+		return super.getMessage();
+	}
 }
